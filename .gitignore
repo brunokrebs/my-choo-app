@@ -5,3 +5,6 @@ dist/
 tmp/
 npm-debug.log*
 .DS_Store
+
+# webstorm files
+.idea/
