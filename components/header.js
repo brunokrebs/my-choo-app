@@ -1,6 +1,11 @@
 var Component = require('choo/component')
 var html = require('nanohtml')
 
+function ProfileLabel (context) {
+  if (!context.authenticated) return
+  return html`<label class="profile">${context.state.profile.name}</label>`
+}
+
 function SignInButton (context) {
   if (context.authenticated) return
   return html`<button class="btn btn-primary" onclick=${context.signIn}>Sign In</button>`
@@ -30,13 +35,11 @@ module.exports = class Header extends Component {
   }
 
   signIn () {
-    this.state.authenticated = true
-    this.emit(this.state.events.RENDER)
+    this.emit(this.state.events.SIGN_IN)
   }
 
   signOut () {
-    this.state.authenticated = false
-    this.emit(this.state.events.RENDER)
+    this.emit(this.state.events.SIGN_OUT)
   }
 
   createElement () {
@@ -48,6 +51,7 @@ module.exports = class Header extends Component {
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
+        ${ProfileLabel(this)}
         ${SignInButton(this)}
         ${SignOutButton(this)}
       </nav>
