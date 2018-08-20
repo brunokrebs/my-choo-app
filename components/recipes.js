@@ -2,7 +2,17 @@ var Component = require('choo/component')
 var html = require('nanohtml')
 
 function Recipe (recipe) {
-  return html`<li>${recipe.title}</li>`
+  return html`
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card recipe">
+        <div class="card-body">
+          <h5 class="card-title">${recipe.title}</h5>
+          <p class="card-text">${recipe.ingredients}</p>
+          <a href="#" class="btn btn-primary">More Details</a>
+        </div>            
+      </div>
+    </div>
+  `
 }
 
 module.exports = class Recipes extends Component {
@@ -26,11 +36,9 @@ module.exports = class Recipes extends Component {
 
   createElement () {
     return html`
-      <section>
-        <ul>
-          ${this.recipes.map(recipe => Recipe(recipe))}
-        </ul>
-      </section>
+      <div class="row">
+        ${this.recipes.map(recipe => Recipe(recipe))}
+      </div>
     `
   }
 }

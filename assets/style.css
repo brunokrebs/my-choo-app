@@ -7,3 +7,7 @@ body {
   margin-right: 10px;
   color: #fff;
 }
+
+.recipe.card {
+  margin-bottom: 30px;
+}
