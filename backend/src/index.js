@@ -13,11 +13,13 @@ const app = express()
 // the in-memory database
 const recipes = [
   {
+    id: 1,
     title: 'Quick Tomato Sandwich',
     ingredients: 'Two slices of bread, ham, cheese, and butter.',
     directions: 'Spread the butter on both slices, add cheese and ham, and enjoy.'
   },
   {
+    id: 2,
     title: 'Scrambled Eggs with Cheese',
     ingredients: 'Three eggs and cheese.',
     directions: 'Crack 3 eggs into a bowl. Beat with fork. Add a splash of water. Stir in desired amount of cheese. Pour egg/cheese mixture into pan. Stir constantly with spatula until done.'
@@ -39,6 +41,13 @@ app.use(morgan('combined'))
 // retrieve recipes
 app.get('/', (req, res) => {
   res.send(recipes)
+})
+
+app.get('/:id', (req, res) => {
+  const recipe = recipes.filter((recipe) => (recipe.id === parseInt(req.params.id)))
+  if (recipe.length === 0) return res.status(404).send()
+  if (recipe.length > 1) return res.status(500).send()
+  res.send(recipe[0])
 })
 
 const checkToken = jwt({
