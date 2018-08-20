@@ -45,12 +45,7 @@ module.exports = class Header extends Component {
   createElement () {
     return html`
       <nav class="navbar fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">My Choo App</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
+        <a class="navbar-brand" href="/">My Choo App</a>
         ${ProfileLabel(this)}
         ${SignInButton(this)}
         ${SignOutButton(this)}
