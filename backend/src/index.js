@@ -26,7 +26,7 @@ app.use(cors())
 app.use(morgan('combined'))
 
 // retrieve recipes
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   res.send(recipes)
 })
 
@@ -45,7 +45,7 @@ const checkToken = jwt({
 })
 
 // insert a new recipe
-app.post('/', checkToken, async (req, res) => {
+app.post('/', checkToken, (req, res) => {
   recipes.push(req.body)
   res.status(200).send()
 })
