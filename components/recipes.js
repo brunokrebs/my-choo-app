@@ -8,7 +8,7 @@ function Recipe (recipe) {
         <div class="card-body">
           <h5 class="card-title">${recipe.title}</h5>
           <p class="card-text">${recipe.ingredients}</p>
-          <a href="#" class="btn btn-primary">More Details</a>
+          <a href="/recipe?id=${recipe.id}" class="btn btn-primary">More Details</a>
         </div>            
       </div>
     </div>
