@@ -8,7 +8,6 @@ module.exports = view
 
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
-  emit(state.events.LOAD_RECIPES)
 
   return html`
     <body>
