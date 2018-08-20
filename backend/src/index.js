@@ -11,7 +11,18 @@ const jwksRsa = require('jwks-rsa')
 const app = express()
 
 // the in-memory database
-const recipes = []
+const recipes = [
+  {
+    title: 'Quick Tomato Sandwich',
+    ingredients: 'Two slices of bread, ham, cheese, and butter.',
+    directions: 'Spread the butter on both slices, add cheese and ham, and enjoy.'
+  },
+  {
+    title: 'Scrambled Eggs with Cheese',
+    ingredients: 'Three eggs and cheese.',
+    directions: 'Crack 3 eggs into a bowl. Beat with fork. Add a splash of water. Stir in desired amount of cheese. Pour egg/cheese mixture into pan. Stir constantly with spatula until done.'
+  }
+]
 
 // enhance your app security with Helmet
 app.use(helmet())

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(require('./stores/authentication'))
-app.use(require('./stores/clicks'))
+app.use(require('./stores/recipes'))
 
 app.route('/', require('./views/main'))
 app.route('/callback', require('./views/callback'))
