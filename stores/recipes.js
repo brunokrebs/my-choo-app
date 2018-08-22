@@ -39,15 +39,8 @@ function store (state, emitter) {
     axios.post('http://localhost:8081/', {
       recipe
     }
-      // I should be able to link values passed from the addRecipe
-      // component so the post request goes like this
-      // And also, it has to work according to the backend
-      // post method
-      // recipe
     ).then(function(response) {
       state.error = null
-      // state.recipe = response.data
-      // console.log(response.data)
       emitter.emit(state.events.RENDER)
     }).catch(function(err) {
       state.error = 'Unable to add post'
