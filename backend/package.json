@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node src"
   },
-  "keywords": ["node", "express", "auth0"],
+  "keywords": [
+    "node",
+    "express",
+    "auth0"
+  ],
   "author": "Bruno Krebs",
   "license": "MIT",
   "dependencies": {

@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var Header = require('../components/header')
 var Recipes = require('../components/recipes')
+var AddRecipe = require('../components/addRecipe')
 
 var TITLE = 'My Choo App'
 
@@ -19,6 +20,7 @@ function view (state, emit) {
             <p>Here, you can find some cool recipes.</p>
             ${state.cache(Recipes, 'recipes').render()}
           </div>
+          ${state.cache(AddRecipe, 'addRecipe').render()}
         </div>
       </div>
     </body>

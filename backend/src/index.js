@@ -65,8 +65,9 @@ const checkToken = jwt({
 })
 
 // insert a new recipe
-app.post('/', checkToken, (req, res) => {
+app.post('/', (req, res) => {
   recipes.push(req.body)
+
   res.status(200).send()
 })
 
