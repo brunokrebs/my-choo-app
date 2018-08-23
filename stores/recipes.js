@@ -11,7 +11,7 @@ function store (state, emitter) {
   state.events.ADD_RECIPE = 'addRecipe'
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
-    axios.get('https://backend-dcuvsjkiqa.now.sh/').then(function (response) {
+    axios.get('https://backend-kifdbquiim.now.sh/').then(function (response) {
       state.error = null
       state.recipes = response.data
       emitter.emit(state.events.RENDER)
@@ -23,7 +23,7 @@ function store (state, emitter) {
   })
 
   emitter.on(state.events.LOAD_RECIPE, function (id) {
-    axios.get('https://backend-dcuvsjkiqa.now.sh/' + id).then(function (response) {
+      axios.get('https://backend-kifdbquiim.now.sh/' + id).then(function (response) {
       state.error = null
       state.recipe = response.data
     }).catch(function (err) {
@@ -34,7 +34,7 @@ function store (state, emitter) {
   })
 
   emitter.on(state.events.ADD_RECIPE, function (recipe) {
-    axios.post('https://backend-dcuvsjkiqa.now.sh/',
+    axios.post('https://backend-kifdbquiim.now.sh/',
       recipe
     ).then(function (response) {
       state.error = null
