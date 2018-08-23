@@ -6,7 +6,7 @@ var auth0Client = new auth0.WebAuth({
   domain: 'bk-tmp.auth0.com',
   audience: 'https://bk-tmp.auth0.com/userinfo',
   clientID: 'k8a6ZDRh4cw6bAGl784cv6xmJ1HEjon3',
-  redirectUri: 'https://localhost:8080/callback',
+  redirectUri: 'https://unruffled-jepsen-932d28.netlify.com/callback',
   responseType: 'token id_token',
   scope: 'openid profile'
 })
