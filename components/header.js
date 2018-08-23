@@ -3,7 +3,7 @@ var html = require('nanohtml')
 
 function DashBoard (context) {
   if (!context.authenticated) return
-  return html`<a href="/user">Post A New Recipe</a>`
+  return html`<a href="/user" class="page-link">Post A New Recipe</a>`
 }
 
 function SignInButton (context) {
