@@ -36,7 +36,7 @@ module.exports = class AddRecipe extends Component {
     var ingredients = document.getElementById('ingredients').value
     var directions = document.getElementById('directions').value
     var recipe = {
-      id: id,
+      id: Number(id),
       title: title,
       ingredients: ingredients,
       directions: directions
