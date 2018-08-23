@@ -26,6 +26,7 @@ function store (state, emitter) {
       axios.get('https://backend-kifdbquiim.now.sh/' + id).then(function (response) {
       state.error = null
       state.recipe = response.data
+      emitter.emit(state.events.RENDER)
     }).catch(function (err) {
       state.error = 'Unable to load recipe with id: ' + id
       console.log(err)
