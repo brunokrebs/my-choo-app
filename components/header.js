@@ -1,10 +1,10 @@
 var Component = require('choo/component')
 var html = require('nanohtml')
 
-// function ProfileLabel (state, context) {
-//   if (!context.authenticated) return
-//   return html`${state.cahce(AddRecipe, 'addRecipe').render()}`
-// }
+function DashBoard (context) {
+  if (!context.authenticated) return
+  return html`<a href="/user">Post A New Recipe</a>`
+}
 
 function SignInButton (context) {
   if (context.authenticated) return
@@ -46,6 +46,7 @@ module.exports = class Header extends Component {
     return html`
       <nav class="navbar fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="/">My Choo App</a>
+        ${DashBoard(this)}
         ${SignInButton(this)}
         ${SignOutButton(this)}
       </nav>

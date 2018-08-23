@@ -17,6 +17,7 @@ function store (state, emitter) {
   state.events.LOAD_PROFILE = 'loadProfile'
   state.events.SIGN_IN = 'signIn'
   state.events.SIGN_OUT = 'signOut'
+  state.events.AUTHENTICATE = 'authenticate'
 
   emitter.on(state.events.LOAD_PROFILE, function () {
     emitter.on(state.events.DOMCONTENTLOADED, function () {
@@ -25,7 +26,7 @@ function store (state, emitter) {
 
         state.authenticated = true
         state.profile = authResult.idTokenPayload
-        emitter.emit(state.events.PUSHSTATE, '/')
+        emitter.emit(state.events.PUSHSTATE, '/user')
       })
     })
   })
@@ -38,5 +39,12 @@ function store (state, emitter) {
     state.authenticated = false
     state.profile = null
     emitter.emit(state.events.PUSHSTATE, '/')
+  })
+
+  emitter.on(state.events.AUTHENTICATE, function() {
+    if (state.authenticated) {
+      emitter.emit('render')
+    }
+    emitter.emit(state.events.REPLACESTATE, '/')
   })
 }

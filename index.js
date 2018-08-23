@@ -20,6 +20,7 @@ app.use(require('./stores/recipes'))
 app.route('/', require('./views/main'))
 app.route('/callback', require('./views/callback'))
 app.route('/recipe', require('./views/recipe'))
+app.route('/user', require('./views/user'))
 app.route('/*', require('./views/404'))
 
 module.exports = app.mount('body')
