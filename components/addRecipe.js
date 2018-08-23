@@ -31,12 +31,12 @@ module.exports = class AddRecipe extends Component {
   }
 
   test () {
-    var id = document.getElementById('recipeid').value
+    var id = Number(document.getElementById('recipeid').value)
     var title = document.getElementById('title').value
     var ingredients = document.getElementById('ingredients').value
     var directions = document.getElementById('directions').value
     var recipe = {
-      id: Number(id),
+      id: id,
       title: title,
       ingredients: ingredients,
       directions: directions
