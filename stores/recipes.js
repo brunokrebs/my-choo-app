@@ -11,7 +11,7 @@ function store (state, emitter) {
   state.events.ADD_RECIPE = 'addRecipe'
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
-    axios.get('http://localhost:8081/').then(function (response) {
+    axios.get('https://6b46342e.ngrok.io/').then(function (response) {
       state.error = null
       state.recipes = response.data
       emitter.emit(state.events.RENDER)
@@ -23,29 +23,31 @@ function store (state, emitter) {
   })
 
   emitter.on(state.events.LOAD_RECIPE, function (id) {
-    axios.get('http://localhost:8081/' + id).then(function (response) {
+    axios.get('https://6b46342e.ngrok.io/' + id).then(function (response) {
       state.error = null
       state.recipe = response.data
-      emitter.emit(state.events.RENDER)
+      emitter.emit(state.events.PUSHSTATE, '/')
     }).catch(function (err) {
       state.error = 'Unable to load recipe with id: ' + id
       console.log(err)
       emitter.emit(state.events.RENDER)
     })
   })
-  
 
-  emitter.on(state.events.ADD_RECIPE, function(recipe) {
-    axios.post('http://localhost:8081/', {
+  emitter.on(state.events.ADD_RECIPE, function (recipe) {
+    axios.post('https://6b46342e.ngrok.io/',
       recipe
-    }
-    ).then(function(response) {
+    ).then(function (response) {
       state.error = null
+      console.log(response)
       emitter.emit(state.events.RENDER)
-    }).catch(function(err) {
+    }).then(
+      emitter.emit(state.events.RENDER)
+    ).catch(function (err) {
       state.error = 'Unable to add post'
       console.log(err)
       emitter.emit(state.events.RENDER)
     })
+    emitter.emit('render')
   })
 }
