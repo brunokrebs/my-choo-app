@@ -26,7 +26,6 @@ function store (state, emitter) {
     axios.get('https://backend-dcuvsjkiqa.now.sh/' + id).then(function (response) {
       state.error = null
       state.recipe = response.data
-      emitter.emit(state.events.PUSHSTATE, '/')
     }).catch(function (err) {
       state.error = 'Unable to load recipe with id: ' + id
       console.log(err)
@@ -41,13 +40,10 @@ function store (state, emitter) {
       state.error = null
       console.log(response)
       emitter.emit(state.events.RENDER)
-    }).then(
-      emitter.emit(state.events.RENDER)
-    ).catch(function (err) {
+    }).catch(function (err) {
       state.error = 'Unable to add post'
       console.log(err)
       emitter.emit(state.events.RENDER)
     })
-    emitter.emit('render')
   })
 }
