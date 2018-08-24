@@ -6,7 +6,7 @@ var auth0Client = new auth0.WebAuth({
   domain: 'budul.auth0.com',
   audience: 'https://budul.auth0.com/userinfo',
   clientID: 'TlUM1tTHNi3SGXqIBuQGz5jVbttCnfxc',
-  redirectUri: 'https://unruffled-jepsen-932d28.netlify.com/callback/',
+  redirectUri: 'localhost:8080/callback',
   responseType: 'token id_token',
   scope: 'openid profile'
 })
