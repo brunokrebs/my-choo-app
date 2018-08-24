@@ -40,7 +40,7 @@ function store (state, emitter) {
     ).then(function (response) {
       state.error = null
       console.log(response)
-      emitter.emit(state.events.RENDER)
+      emitter.emit(state.events.PUSHSTATE, '/')
     }).catch(function (err) {
       state.error = 'Unable to add post'
       console.log(err)
