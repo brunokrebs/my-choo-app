@@ -42,5 +42,6 @@ module.exports = class AddRecipe extends Component {
       directions: directions
     }
     this.emit(this.state.events.ADD_RECIPE, recipe)
+    this.emit(this.state.events.RENDER)
   }
 }
