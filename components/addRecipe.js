@@ -43,7 +43,7 @@ module.exports = class AddRecipe extends Component {
       directions: directions
     }
     this.emit(this.state.events.ADD_RECIPE, recipe)
-    return this.emit(this.state.events.RENDER)
-
+    this.emit(this.state.events.REPLACESTATE, '/')
+    this.emit(this.state.events.RENDER)
   }
 }

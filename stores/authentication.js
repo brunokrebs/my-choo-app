@@ -44,8 +44,7 @@ function store (state, emitter) {
   emitter.on(state.events.AUTHENTICATE, function() {
     if (state.authenticated) {
       emitter.emit('render')
-    } else {
-      emitter.emit(state.events.REPLACESTATE, '/')
     }
+      emitter.emit(state.events.REPLACESTATE, '/')
   })
 }
