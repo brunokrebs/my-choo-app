@@ -7,11 +7,11 @@ var TITLE = 'My Choo App'
 module.exports = view
 
 function view (state, emit) {
-    if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
+  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-    emit(state.events.AUTHENTICATE)
+  emit(state.events.AUTHENTICATE)
 
-    return html`
+  return html`
     <body>
     ${state.cache(Header, 'header').render()}            
     <div class="container-fluid">
