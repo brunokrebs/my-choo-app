@@ -8,6 +8,7 @@ module.exports = class AddRecipe extends Component {
     this.emit = emit
     this.state = state
     this.test = this.test.bind(this)
+    emit(state.events.RENDER)
   }
 
   update () {
@@ -41,7 +42,8 @@ module.exports = class AddRecipe extends Component {
       ingredients: ingredients,
       directions: directions
     }
-    return this.emit(this.state.events.ADD_RECIPE, recipe)
+    this.emit(this.state.events.ADD_RECIPE, recipe)
+    this.emit(this.state.events.RENDER)
 
   }
 }
