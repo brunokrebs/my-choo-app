@@ -40,8 +40,7 @@ function store (state, emitter) {
     ).then(function (response) {
       state.error = null
       console.log(response)
-      emitter.emit(state.events.PUSHSTATE, '/')
-      emitter.emit(state.events.LOAD_RECIPE)
+      emitter.emit(state.events.RENDER)
     }).then(
       emitter.emit(state.events.RENDER)
     ).catch(function (err) {
