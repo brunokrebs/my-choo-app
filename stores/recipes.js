@@ -40,12 +40,11 @@ function store (state, emitter) {
     ).then(function (response) {
       state.error = null
       console.log(response)
-    }).then(
-      emitter.emit('render')
-    ).catch(function (err) {
+    }).catch(function (err) {
       state.error = 'Unable to add post'
       console.log(err)
       emitter.emit(state.events.RENDER)
     })
+    emitter.emit('render')
   })
 }
