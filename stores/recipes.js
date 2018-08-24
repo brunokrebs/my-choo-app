@@ -39,11 +39,11 @@ function store (state, emitter) {
       recipe
     ).then(function (response) {
       state.error = null
-      console.log(response)
+      state.response = response
+      emitter.emit(state.events.RENDER)
     }).catch(function (err) {
       state.error = 'Unable to add post'
       console.log(err)
-      emitter.emit(state.events.RENDER)
     })
     emitter.emit('render')
   })
