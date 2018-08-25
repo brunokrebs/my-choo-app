@@ -1,1 +1,0 @@
-{"name":"my-choo-app","short_name":"my-choo-app","description":"Choo Example App","start_url":"/","display":"standalone","background_color":"#000","theme_color":"#000","icons":[{"src":"/assets/icon.png","type":"image/png","sizes":"512x512"}]}
