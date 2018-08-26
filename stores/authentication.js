@@ -3,10 +3,10 @@ var auth0 = require('auth0-js')
 module.exports = store
 
 var auth0Client = new auth0.WebAuth({
-  domain: 'budul.auth0.com',
-  audience: 'https://budul.auth0.com/userinfo',
-  clientID: 'TlUM1tTHNi3SGXqIBuQGz5jVbttCnfxc',
-  redirectUri: 'https://unruffled-jepsen-932d28.netlify.com/callback/',
+  domain: 'bk-tmp.auth0.com',
+  audience: 'https://bk-tmp.auth0.com/userinfo',
+  clientID: 'k8a6ZDRh4cw6bAGl784cv6xmJ1HEjon3',
+  redirectUri: 'https://localhost:8080/callback',
   responseType: 'token id_token',
   scope: 'openid profile'
 })
@@ -41,10 +41,10 @@ function store (state, emitter) {
     emitter.emit(state.events.PUSHSTATE, '/')
   })
 
-  emitter.on(state.events.AUTHENTICATE, function() {
+  emitter.on(state.events.AUTHENTICATE, function () {
     if (state.authenticated) {
       emitter.emit('render')
     }
-      emitter.emit(state.events.REPLACESTATE, '/')
+    emitter.emit(state.events.REPLACESTATE, '/')
   })
 }
