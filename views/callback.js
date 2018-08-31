@@ -1,6 +1,6 @@
 var html = require('choo/html')
 
-var TITLE = 'My Choo App - Loading Profile'
+var TITLE = 'Recipes App - Loading Profile'
 
 module.exports = view
 
