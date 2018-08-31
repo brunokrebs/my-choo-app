@@ -1,7 +1,7 @@
 {
-  "name": "my-choo-app",
-  "short_name": "my-choo-app",
-  "description": "Choo Example App",
+  "name": "Recipes App",
+  "short_name": "Recipes App",
+  "description": "A simple recipe collections app",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000",
