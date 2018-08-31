@@ -26,7 +26,7 @@ function store (state, emitter) {
 
         state.authenticated = true
         state.profile = authResult.idTokenPayload
-        emitter.emit(state.events.PUSHSTATE, '/user')
+        emitter.emit(state.events.PUSHSTATE, '/')
       })
     })
   })
@@ -44,7 +44,9 @@ function store (state, emitter) {
   emitter.on(state.events.AUTHENTICATE, function () {
     if (state.authenticated) {
       emitter.emit('render')
-    }
+    } else {
+
     emitter.emit(state.events.REPLACESTATE, '/')
+  }
   })
 }
