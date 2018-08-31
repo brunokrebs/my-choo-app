@@ -2,7 +2,7 @@ var html = require('choo/html')
 var Header = require('../components/header')
 var Recipes = require('../components/recipes')
 
-var TITLE = 'My Choo App'
+var TITLE = 'Recipes App'
 
 module.exports = view
 
@@ -15,7 +15,7 @@ function view (state, emit) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm">
-            <h1>Welcome to My Choo App</h1>
+            <h1>Welcome to Recipes App</h1>
             <p>Here, you can find some cool recipes.</p>
             ${state.cache(Recipes, 'recipes').render()}
           </div>

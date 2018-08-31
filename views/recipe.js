@@ -2,7 +2,7 @@ var html = require('choo/html')
 var Header = require('../components/header')
 var Recipe = require('../components/recipe')
 
-var TITLE = 'My Choo App'
+var TITLE = 'Recipes App'
 
 module.exports = view
 

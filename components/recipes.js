@@ -16,12 +16,14 @@ function Recipe (recipe) {
 }
 
 module.exports = class Recipes extends Component {
-  constructor (name, state) {
+  constructor (name, state, emit) {
     super(name)
     this.state = state
 
     this.authenticated = this.state.authenticated
     this.recipes = this.state.recipes
+
+    emit(this.state.events.LOAD_RECIPES)
   }
 
   update () {

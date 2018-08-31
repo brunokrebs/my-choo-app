@@ -66,7 +66,7 @@ const checkToken = jwt({
 
 // insert a new recipe
 app.post('/', (req, res) => {
-  parseInt(req.body.id, 10)
+  req.body.id = recipes.length + 1
   recipes.push(req.body)
   res.status(200).send()
 })
