@@ -23,7 +23,7 @@ module.exports = class AddRecipe extends Component {
         <legend>Recipe Directions </legend>
             <textarea cols="50" rows="3" name="directions" id="directions" class="form-control"></textarea>
         <input type="button" class="btn btn-primary" onclick=${this.test} value="Add Recipe" />
-    </div>
+      </div>
     `
   }
   test () {
