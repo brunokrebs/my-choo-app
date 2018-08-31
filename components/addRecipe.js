@@ -16,8 +16,6 @@ module.exports = class AddRecipe extends Component {
   createElement () {
     return html`
       <div class="container-fluid">
-        <legend>Recipe ID: </legend>
-            <input type="number" name="recipeid" id="recipeid" placeholder="0" class="form-control" />
         <legend>Recipe Title</legend>
             <input type="text" name="title" id="title" class="form-control" /><br>
         <legend>Recipe Ingredients</legend>
@@ -29,12 +27,10 @@ module.exports = class AddRecipe extends Component {
     `
   }
   test () {
-    var id = Number(document.getElementById('recipeid').value)
     var title = document.getElementById('title').value
     var ingredients = document.getElementById('ingredients').value
     var directions = document.getElementById('directions').value
     var recipe = {
-      id: id,
       title: title,
       ingredients: ingredients,
       directions: directions
